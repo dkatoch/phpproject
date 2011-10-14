@@ -1,0 +1,26 @@
+drop database phpproject;
+create database phpproject;
+use phpproject;
+
+drop table users ;
+create table users (name varchar(20) ,password varchar(100), admin varchar(20) , date timestamp,ip varchar(20),id int primary key not null auto_increment) type = innodb;
+insert into users (name,password,admin,id,ip) values ("admin","admin","1","1","127.0.0.1");
+
+drop table projects ;
+create table projects (id int primary key not null auto_increment,name varchar(20),date timestamp,des varchar(20),cat varchar(20),status varchar(20),sort varchar(20),private varchar (20),last_changed timestamp,last_user varchar(20)) type=innodb;
+
+insert into projects (name,des,last_user,last_changed) values ("mck","test","admin",'2011-06-07');
+
+
+
+drop table status;
+create table status (id int primary key auto_increment,status varchar(20)) type=innodb;
+insert into status (id,status) value (1,"completed");
+insert into status (id,status) value (2,"In progress");
+insert into status (id,status) value (3,"delivered");
+
+
+drop table category;
+create table category (id int primary key not null auto_increment,cat varchar (20)) type=innodb;
+insert into category (id ,cat) value (1,"banking services");
+insert into category (id ,cat) value (2,"telecommunications");
